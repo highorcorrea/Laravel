@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('exemplo',function(){
+    $nome = "Highor";
+    $sobrenome = "Correa";
+   return view('exemplo',compact('nome','sobrenome'));
+});
