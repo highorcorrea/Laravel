@@ -1,5 +1,6 @@
 <?php
 
+use CodeCommerce\Category;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -14,8 +15,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('exemplo',function(){
-    $nome = "Highor";
-    $sobrenome = "Correa";
-   return view('exemplo',compact('nome','sobrenome'));
+
+    $categories = Category::all();
+
+
+   return view('exemplo',compact('categories'));
 });

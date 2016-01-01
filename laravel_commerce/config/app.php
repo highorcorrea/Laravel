@@ -145,6 +145,8 @@ return [
         CodeCommerce\Providers\EventServiceProvider::class,
         CodeCommerce\Providers\RouteServiceProvider::class,
 
+        Bestmomo\Scafold\ScafoldServiceProvider::class,
+
     ],
 
     /*

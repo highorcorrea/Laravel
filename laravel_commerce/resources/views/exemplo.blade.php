@@ -1,2 +1,6 @@
 <h1>Exemplo</h1>
-<p> Ola {{ $nome }} {{$sobrenome}} </p>
+<ul>
+    @foreach($categories as $category)
+        <li>{{ $category->name }}</li>
+    @endforeach
+</ul>
