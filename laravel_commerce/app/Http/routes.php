@@ -1,6 +1,6 @@
 <?php
 
-use CodeCommerce\Category;
+//use CodeCommerce\Category;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -12,14 +12,27 @@ use CodeCommerce\Category;
 |
 */
 
+//New style
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
 
+
+//Old style
+Route::get('/','WelcomeController@index');
+
+
+Route::get('admin/products','AdminProductsController@index');
+
+Route::get('admin/categories','AdminCategoriesController@index');
+
+
+/*
 Route::get('exemplo',function(){
 
     $categories = Category::all();
-
-
-   return view('exemplo',compact('categories'));
+    return view('exemplo',compact('categories'));
 });
+*/
