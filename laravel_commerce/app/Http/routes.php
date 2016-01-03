@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 */
 
+Route::pattern('id','[0-9]+');
 
 //Old style
 Route::get('/','WelcomeController@index');
@@ -28,6 +29,12 @@ Route::get('admin/products','AdminProductsController@index');
 
 Route::get('admin/categories','AdminCategoriesController@index');
 
+Route::get('user/{id?}', function($id = null){
+    if($id)
+        return "Ola $id";
+    return "Não possui id";
+
+});
 
 /*
 Route::get('exemplo',function(){
