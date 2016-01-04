@@ -26,6 +26,7 @@ Route::group(['prefix' => 'admin'],function(){
 
 });
 
+Route::get('categories','CategoriesController@index');
 
 Route::get('/','WelcomeController@index');
 
