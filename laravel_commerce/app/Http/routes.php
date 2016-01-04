@@ -1,6 +1,6 @@
 <?php
 
-//use CodeCommerce\Category;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -12,34 +12,24 @@
 |
 */
 
-//New style
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
-*/
 
 Route::pattern('id','[0-9]+');
+Route::pattern('category','[A-Za-z]+');
+Route::pattern('products','[A-Za-z]+');
 
-//Old style
+
+Route::group(['prefix' => 'admin'],function(){
+
+    Route::resource('products', 'AdminProductsController');
+
+    Route::resource('categories', 'AdminCategoriesController');
+
+});
+
+
 Route::get('/','WelcomeController@index');
 
 
-Route::get('admin/products','AdminProductsController@index');
+//Route::get('admin/products','AdminProductsController@index');
 
-Route::get('admin/categories','AdminCategoriesController@index');
-
-Route::get('user/{id?}', function($id = null){
-    if($id)
-        return "Ola $id";
-    return "Não possui id";
-
-});
-
-/*
-Route::get('exemplo',function(){
-
-    $categories = Category::all();
-    return view('exemplo',compact('categories'));
-});
-*/
+//Route::get('admin/categories','AdminCategoriesController@index');
