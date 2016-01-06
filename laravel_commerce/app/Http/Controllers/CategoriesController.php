@@ -38,7 +38,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -47,9 +47,15 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\CategoryRequest $request)
     {
-        //
+        $input = $request->all();
+
+        $category = $this->categoryModel->fill($input);
+
+        $category->save();
+
+        return redirect('categories');
     }
 
     /**
@@ -71,7 +77,9 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = $this->categoryModel->find($id);
+
+        return view('categories.edit', compact('category'));
     }
 
     /**
@@ -81,9 +89,11 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Requests\CategoryRequest $request, $id)
     {
-        //
+        $this->categoryModel->find($id)->update($request->all());
+
+        return redirect()->route('categories');
     }
 
     /**
@@ -94,6 +104,8 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->categoryModel->find($id)->delete();
+
+        return redirect('categories');
     }
 }
