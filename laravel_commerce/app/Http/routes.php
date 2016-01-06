@@ -34,6 +34,14 @@ Route::get('categories/{id}/destroy', ['as' => 'categories.destroy', 'uses' => '
 Route::get('categories/{id}/edit', ['as' => 'categories.edit', 'uses' => 'CategoriesController@edit']);
 Route::put('categories/{id}/update', ['as' => 'categories.update', 'uses' => 'CategoriesController@update']);
 
+//Products
+Route::get('products', ['as' => 'products', 'uses' => 'ProductsController@index']);
+Route::post('products', ['as' => 'products.store', 'uses' => 'ProductsController@store']);
+Route::get('products/create', ['as' => 'products.create', 'uses' => 'ProductsController@create']);
+Route::get('products/{id}/destroy', ['as' => 'products.destroy', 'uses' => 'ProductsController@destroy']);
+Route::get('products/{id}/edit', ['as' => 'products.edit', 'uses' => 'ProductsController@edit']);
+Route::put('products/{id}/update', ['as' => 'products.update', 'uses' => 'ProductsController@update']);
+
 
 
 

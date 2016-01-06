@@ -2,21 +2,25 @@
 
 namespace CodeCommerce\Http\Controllers;
 
-use CodeCommerce\Category;
+use CodeCommerce\Product;
 use Illuminate\Http\Request;
 
 use CodeCommerce\Http\Requests;
 use CodeCommerce\Http\Controllers\Controller;
 
-class CategoriesController extends Controller
+class ProductsController extends Controller
 {
 
-    private $categoryModel;
 
+    private $productModel;
 
-    public function __construct(Category $categoryModel)
+    /**
+     * ProductsController constructor.
+     * @param $productModel
+     */
+    public function __construct(Product $productModel)
     {
-        $this->categoryModel = $categoryModel;
+        $this->productModel = $productModel;
     }
 
 
@@ -27,8 +31,8 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = $this->categoryModel->all();
-        return view('categories.index',compact('categories'));
+        $products = $this->productModel->all();
+        return view('products.index',compact('products'));
     }
 
     /**
@@ -38,23 +42,23 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        return view('products.create');
     }
 
 
     /**
-     * @param Requests\CategoryRequest $request
+     * @param Requests\ProductsRequest $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Requests\CategoryRequest $request)
+    public function store(Requests\ProductsRequest $request)
     {
         $input = $request->all();
 
-        $category = $this->categoryModel->fill($input);
+        $product = $this->productModel->fill($input);
 
-        $category->save();
+        $product->save();
 
-        return redirect()->route('categories');
+        return redirect()->route('products');
     }
 
     /**
@@ -76,22 +80,22 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        $category = $this->categoryModel->find($id);
+        $product = $this->productModel->find($id);
 
-        return view('categories.edit', compact('category'));
+        return view('products.edit', compact('product'));
     }
 
 
     /**
-     * @param Requests\CategoryRequest $request
+     * @param Requests\ProductsRequest $request
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Requests\CategoryRequest $request, $id)
+    public function update(Requests\ProductsRequest $request, $id)
     {
-        $this->categoryModel->find($id)->update($request->all());
+        $this->productModel->find($id)->update($request->all());
 
-        return redirect()->route('categories');
+        return redirect()->route('products');
     }
 
     /**
@@ -102,8 +106,8 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        $this->categoryModel->find($id)->delete();
+        $this->productModel->find($id)->delete();
 
-        return redirect()->route('categories');
+        return redirect()->route('products');
     }
 }
