@@ -8,7 +8,7 @@
         <br>
         <br>
 
-        <table class="table">
+        <table class="table table-hover">
             <tr>
                 <th>ID</th>
                 <th>Name</th>
@@ -23,8 +23,8 @@
                     <td>{{ $category->name }}</td>
                     <td>{{ $category->description }}</td>
                     <td>
-                        <a href="{{ route('categories.edit',['id' => $category->id]) }}">Edit</a> |
-                        <a href="{{ route('categories.destroy',['id' => $category->id]) }}">Delete</a>
+                        <a href="{{ route('categories.edit',['id' => $category->id]) }}" class="btn btn-sm btn-success">Edit</a>
+                        <a href="{{ route('categories.destroy',['id' => $category->id]) }}" class="btn btn-sm btn-danger">Delete</a>
                     </td>
                 </tr>
             @endforeach

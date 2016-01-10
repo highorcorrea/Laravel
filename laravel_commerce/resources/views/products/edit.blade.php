@@ -5,7 +5,7 @@
         <h1>Editing Products: {{ $product->name }}</h1>
 
         @if ($errors->any())
-                <ul class="alert">
+                <ul class="alert alert-warning">
                     @foreach($errors->all() as $error)
                         <li>{{ $error }}</li>
 
@@ -25,7 +25,7 @@
 
         <!-- Description Form Input-->
         <div class="form-group">
-            {!! Form::label('description', 'Name:') !!}
+            {!! Form::label('description', 'Description:') !!}
             {!! Form::textarea('description',$product->description, ['class' => 'form-control']) !!}
         </div>
 
