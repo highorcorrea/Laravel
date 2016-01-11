@@ -31,6 +31,7 @@
 
         <div class="form-group">
             {!! Form::submit('Save Category', ['class' => 'btn btn-primary']) !!}
+            <a href="{{route('categories')}}" class="btn btn-default">Back</a>
         </div>
 
 

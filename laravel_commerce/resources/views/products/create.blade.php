@@ -16,6 +16,11 @@
         {!! Form::open(['route' => 'products.store']) !!}
 
 
+         <!-- Select Form Input-->
+         <div class="form-group">
+             {!! Form::label('category', 'Category:') !!}
+             {!! Form::select('category_id',$categories, null, ['class' => 'form-control']) !!}
+         </div>
 
         <!-- Name Form Input-->
         <div class="form-group">
@@ -35,21 +40,22 @@
                 {!! Form::text('price',null, ['class' => 'form-control']) !!}
             </div>
 
-            <!-- Featured Form Input-->
+            <!-- Featured Recommend Form Input-->
             <div class="form-group">
                 {!! Form::label('featured', 'Featured:') !!}
                 {!! Form::checkbox('featured') !!}
-            </div>
 
-            <!-- Recommend Form Input-->
-            <div class="form-group">
                 {!! Form::label('recommend', 'Recommend:') !!}
                 {!! Form::checkbox('recommend') !!}
             </div>
 
+
+
         <div class="form-group">
             {!! Form::submit('Add Product', ['class' => 'btn btn-primary']) !!}
+            <a href="{{route('products')}}" class="btn btn-default">Back</a>
         </div>
+
 
 
         {!! Form::close() !!}
