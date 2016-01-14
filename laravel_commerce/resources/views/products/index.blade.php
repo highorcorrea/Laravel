@@ -22,12 +22,13 @@
                 <tr>
                     <td>{{ $product->id }}</td>
                     <td>{{ $product->name }}</td>
-                    <td>{{ $product->description }}</td>
+                    <td>{{ str_limit($product->description,$limit = 100, $end = '...') }}</td>
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->category->name }}</td>
 
-                    <td>
+                    <td class=" btn-group-sm">
                         <a href="{{ route('products.edit',['id' => $product->id]) }}" class="btn btn-sm btn-success">Edit</a>
+                        <a href="{{ route('products.images',['id' => $product->id]) }}" class="btn btn-sm btn-primary">Images</a>
                         <a href="{{ route('products.destroy',['id' => $product->id]) }}" class="btn btn-sm btn-danger">Delete</a>
                     </td>
                 </tr>
