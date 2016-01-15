@@ -20,7 +20,7 @@
                 <tr>
                     <td>{{ $image->id }}</td>
                     <td>
-                        <img src=" {{ url('uploads/'.$image->id.'.'.$image->extension) }}" width="50">
+                        <img src=" {{ url('uploads/'.$image->id.'.'.$image->extension) }}" width="80">
                     </td>
                     <td>{{ $image->extension }}</td>
                     <td>
