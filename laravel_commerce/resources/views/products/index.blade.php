@@ -4,7 +4,7 @@
     <div class="container">
         <h1>Products</h1>
 
-        <a href="{{route('products.create')}}" class="btn btn-default">New Product</a>
+        <a href="{{route('products.create')}}" class="btn btn-sm btn-default">New Product</a>
         <br>
         <br>
 
@@ -26,7 +26,7 @@
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->category->name }}</td>
 
-                    <td class=" btn-group-sm">
+                    <td>
                         <a href="{{ route('products.edit',['id' => $product->id]) }}" class="btn btn-sm btn-success">Edit</a>
                         <a href="{{ route('products.images',['id' => $product->id]) }}" class="btn btn-sm btn-primary">Images</a>
                         <a href="{{ route('products.destroy',['id' => $product->id]) }}" class="btn btn-sm btn-danger">Delete</a>

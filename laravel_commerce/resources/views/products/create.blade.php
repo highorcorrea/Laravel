@@ -5,7 +5,7 @@
         <h1>Create Product</h1>
 
         @if ($errors->any())
-                <ul class="alert alert-warning">
+                <ul class="alert alert-danger">
                     @foreach($errors->all() as $error)
                         <li>{{ $error }}</li>
 
@@ -52,8 +52,8 @@
 
 
         <div class="form-group">
-            {!! Form::submit('Add Product', ['class' => 'btn btn-primary']) !!}
-            <a href="{{route('products')}}" class="btn btn-default">Back</a>
+            {!! Form::submit('Add Product', ['class' => 'btn btn-sm btn-primary']) !!}
+            <a href="{{route('products')}}" class="btn btn-sm btn-default">Back</a>
         </div>
 
 

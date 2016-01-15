@@ -5,7 +5,7 @@
         <h1>Create Category</h1>
 
         @if ($errors->any())
-                <ul class="alert alert-warning">
+                <ul class="alert alert-danger">
                     @foreach($errors->all() as $error)
                         <li>{{ $error }}</li>
 
@@ -30,8 +30,8 @@
         </div>
 
         <div class="form-group">
-            {!! Form::submit('Add Category', ['class' => 'btn btn-primary']) !!}
-            <a href="{{route('categories')}}" class="btn btn-default">Back</a>
+            {!! Form::submit('Add Category', ['class' => 'btn btn-sm btn-primary']) !!}
+            <a href="{{route('categories')}}" class="btn btn-sm btn-default">Back</a>
         </div>
 
 

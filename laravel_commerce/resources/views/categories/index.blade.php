@@ -4,7 +4,7 @@
     <div class="container">
         <h1>Categories</h1>
 
-        <a href="{{route('categories.create')}}" class="btn btn-default">New Category</a>
+        <a href="{{route('categories.create')}}" class="btn btn-sm btn-default">New Category</a>
         <br>
         <br>
 

@@ -5,7 +5,7 @@
         <h1>Upload Image</h1>
 
         @if ($errors->any())
-                <ul class="alert alert-warning">
+                <ul class="alert alert-danger">
                     @foreach($errors->all() as $error)
                         <li>{{ $error }}</li>
 
@@ -24,8 +24,8 @@
 
 
         <div class="form-group">
-            {!! Form::submit('Upload Image', ['class' => 'btn btn-primary']) !!}
-            <a href="{{route('products.images',$product->id)}}" class="btn btn-default">Back</a>
+            {!! Form::submit('Upload Image', ['class' => 'btn btn-sm btn-primary']) !!}
+            <a href="{{route('products.images',$product->id)}}" class="btn btn-sm btn-default">Back</a>
         </div>
 
 
