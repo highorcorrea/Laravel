@@ -6,6 +6,7 @@ use CodeCommerce\Category;
 use CodeCommerce\Product;
 use CodeCommerce\ProductImage;
 //use Faker\Provider\File;
+use CodeCommerce\Tag;
 use Illuminate\Http\Request;
 
 use CodeCommerce\Http\Requests;
@@ -65,6 +66,10 @@ class ProductsController extends Controller
 
         $product->save();
 
+        $inputTags = array_map('trim',explode(',',$request->get('tags')));
+
+        $this->storeTag($inputTags, $product->id);
+
         return redirect()->route('products');
     }
 
@@ -103,6 +108,10 @@ class ProductsController extends Controller
     public function update(Requests\ProductsRequest $request, $id)
     {
         $this->productModel->find($id)->update($request->all());
+
+        $inputTags = array_map('trim', explode(',', $request->get('tags')));
+
+        $this->storeTag($inputTags, $id);
 
         return redirect()->route('products');
     }
@@ -161,6 +170,18 @@ class ProductsController extends Controller
         $image->delete();
 
         return redirect()->route('products.images',['id' => $product->id]);
+    }
+
+    public function storeTag($inputTags, $id)
+    {
+        $tagsIDs = array_map(function($tagName) {
+            return Tag::firstOrCreate(['name' => $tagName])->id;
+        }, array_filter($inputTags));
+
+        $product = $this->productModel->find($id);
+        $product->tags()->sync($tagsIDs);
+
+
     }
 
 }

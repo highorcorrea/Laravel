@@ -12,7 +12,7 @@ class Product extends Model
         'description',
         'price',
         'featured',
-        'recommend'
+        'recommend',
     ];
 
     public function images()
@@ -32,7 +32,7 @@ class Product extends Model
 
     public function getTagListAttribute()
     {
-        $tags = $this->tags->lists('name');
+        $tags = $this->tags->lists('name')->toArray();
 
         return implode(',', $tags);
     }

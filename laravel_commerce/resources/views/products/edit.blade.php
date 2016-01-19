@@ -46,6 +46,11 @@
                 {!! Form::label('recommend', 'Recommend:') !!}
                 {!! Form::checkbox('recommend',null,$product->recommend, ['class' => 'field']) !!}
             </div>
+            <!-- Tags Form Input-->
+            <div class="form-group">
+                {!! Form::label('tag', 'Tag:') !!}
+                {!! Form::textarea('tags',  $product->tagList, ['class' => 'form-control', 'placeholder' => 'Tag']) !!}
+            </div>
 
 
         <div class="form-group">

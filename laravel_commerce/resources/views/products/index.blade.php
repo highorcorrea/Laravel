@@ -14,6 +14,7 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th>Price</th>
+                <th>Tags</th>
                 <th>Category</th>
                 <th>Action</th>
             </tr>
@@ -24,6 +25,7 @@
                     <td>{{ $product->name }}</td>
                     <td>{{ str_limit($product->description,$limit = 100, $end = '...') }}</td>
                     <td>{{ $product->price }}</td>
+                    <td>{{ $product->tagList }}</td>
                     <td>{{ $product->category->name }}</td>
 
                     <td>

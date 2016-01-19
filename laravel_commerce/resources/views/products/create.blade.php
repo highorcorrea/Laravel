@@ -25,19 +25,19 @@
         <!-- Name Form Input-->
         <div class="form-group">
             {!! Form::label('name', 'Name:') !!}
-            {!! Form::text('name',null, ['class' => 'form-control']) !!}
+            {!! Form::text('name',null, ['class' => 'form-control', 'placeholder' => 'Name']) !!}
         </div>
 
         <!-- Description Form Input-->
         <div class="form-group">
             {!! Form::label('description', 'Description:') !!}
-            {!! Form::textarea('description',null, ['class' => 'form-control']) !!}
+            {!! Form::textarea('description',null, ['class' => 'form-control', 'placeholder' => 'Description']) !!}
         </div>
 
             <!-- Price Form Input-->
             <div class="form-group">
                 {!! Form::label('price', 'Price:') !!}
-                {!! Form::text('price',null, ['class' => 'form-control']) !!}
+                {!! Form::text('price',null, ['class' => 'form-control', 'placeholder' => 'Price']) !!}
             </div>
 
             <!-- Featured Recommend Form Input-->
@@ -49,13 +49,16 @@
                 {!! Form::checkbox('recommend') !!}
             </div>
 
-
+            <!-- Tags Form Input-->
+            <div class="form-group">
+                {!! Form::label('tag', 'Tag:') !!}
+                {!! Form::textarea('tags',  null, ['class' => 'form-control', 'placeholder' => 'Tag']) !!}
+            </div>
 
         <div class="form-group">
             {!! Form::submit('Add Product', ['class' => 'btn btn-sm btn-primary']) !!}
             <a href="{{route('products')}}" class="btn btn-sm btn-default">Back</a>
         </div>
-
 
 
         {!! Form::close() !!}
