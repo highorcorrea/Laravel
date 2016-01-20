@@ -41,10 +41,10 @@
             <!-- Featured Recommend Form Input-->
             <div class="form-group">
                 {!! Form::label('featured', 'Featured:') !!}
-                {!! Form::checkbox('featured', null,$product->featured, ['class' => 'field']) !!}
+                {!! Form::checkbox('featured', 1, $product->featured) !!}
 
                 {!! Form::label('recommend', 'Recommend:') !!}
-                {!! Form::checkbox('recommend',null,$product->recommend, ['class' => 'field']) !!}
+                {!! Form::checkbox('recommend',1, $product->recommend) !!}
             </div>
             <!-- Tags Form Input-->
             <div class="form-group">

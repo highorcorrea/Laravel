@@ -50,4 +50,4 @@ Route::group(['prefix' => 'admin','where'=> ['id' => '[0-9]+']], function()
     });
 });
 
-Route::get('/','WelcomeController@index');
+Route::get('/','StoreController@index');

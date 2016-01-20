@@ -129,6 +129,10 @@ class ProductsController extends Controller
         return redirect()->route('products');
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function images($id)
     {
         $product = $this->productModel->find($id);
@@ -136,6 +140,10 @@ class ProductsController extends Controller
         return view('products.images', compact('product'));
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function createImage($id)
     {
         $product = $this->productModel->find($id);
@@ -143,6 +151,12 @@ class ProductsController extends Controller
         return view('products.create_image', compact('product'));
     }
 
+    /**
+     * @param Requests\ProductImageRequest $request
+     * @param $id
+     * @param ProductImage $productImage
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function storeImage(Requests\ProductImageRequest $request, $id, ProductImage $productImage)
     {
         $file = $request->file('image');
@@ -156,6 +170,11 @@ class ProductsController extends Controller
         return redirect()->route('products.images', ['id' => $id]);
     }
 
+    /**
+     * @param ProductImage $productImage
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroyImage(ProductImage $productImage,$id)
     {
         $image = $productImage->find($id);
@@ -172,16 +191,21 @@ class ProductsController extends Controller
         return redirect()->route('products.images',['id' => $product->id]);
     }
 
+    /**
+     * @param $inputTags
+     * @param $id
+     */
     public function storeTag($inputTags, $id)
     {
         $tagsIDs = array_map(function($tagName) {
+
             return Tag::firstOrCreate(['name' => $tagName])->id;
+
         }, array_filter($inputTags));
 
         $product = $this->productModel->find($id);
+
         $product->tags()->sync($tagsIDs);
-
-
     }
 
 }

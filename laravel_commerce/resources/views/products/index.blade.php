@@ -16,6 +16,8 @@
                 <th>Price</th>
                 <th>Tags</th>
                 <th>Category</th>
+                <th>Featured</th>
+                <th>Recommend</th>
                 <th>Action</th>
             </tr>
 
@@ -27,9 +29,11 @@
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->tagList }}</td>
                     <td>{{ $product->category->name }}</td>
+                    <td>{{ $product->featured ==1 ? 'yes' : 'no' }}</td>
+                    <td>{{ $product->recommend ==1 ? 'yes' : 'no' }}</td>
 
                     <td>
-                        <a href="{{ route('products.edit',['id' => $product->id]) }}" class="btn btn-sm btn-success">Edit</a>
+                        <a href="{{ route('products.edit',['id' => $product->id, 'category' => $product->categ]) }}" class="btn btn-sm btn-success">Edit</a>
                         <a href="{{ route('products.images',['id' => $product->id]) }}" class="btn btn-sm btn-primary">Images</a>
                         <a href="{{ route('products.destroy',['id' => $product->id]) }}" class="btn btn-sm btn-danger">Delete</a>
                     </td>
