@@ -1,0 +1,30 @@
+<?php
+
+namespace CodeCommerce\Http\Controllers;
+
+use CodeCommerce\Cart;
+use CodeCommerce\Http\Requests;
+use Illuminate\Support\Facades\Session;
+
+class CartController extends Controller
+{
+    private $cart;
+
+    /**
+     * @param Cart $cart
+     */
+    public function __construct(Cart $cart)
+    {
+        $this->cart = $cart;
+    }
+    
+    public function index()
+    {
+        if(!Session::has('cart'))
+        {
+            Session::set('cart');
+        }
+
+        return view('store.cart');
+    }
+}
