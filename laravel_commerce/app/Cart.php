@@ -13,17 +13,14 @@ class Cart
 {
     private $items;
 
-    public function __contruct()
+    public function __construct()
     {
-        $this->items = [
-
-        ];
+        $this->items = [];
     }
 
     public function add($id, $name, $price)
     {
-        //id -> qtd, price, name
-        $this->items + [
+        $this->items += [
             $id => [
                 'qtd' => isset($this->items[$id]['qtd']) ? $this->items[$id]['qtd']++ : 1,
                 'price' => $price,
@@ -31,6 +28,8 @@ class Cart
 
             ]
         ];
+
+        return $this->items;
 
     }
 
