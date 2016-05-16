@@ -39,8 +39,16 @@
                                 R$ {{ number_format($item['price'], 2, ',', '.') }}
                             </td>
 
+
                             <td class="cart_quantity">
-                                {{ $item['qtd'] }}
+                                {!! Form::open(['route'=>['cart.update', $k], 'method'=>'put']) !!}
+                                <div class="input-group" style="width: 120px">
+                                    {!! Form::text('qtd', $item['qtd'], ['class'=>'form-control']) !!}
+                                    <span class="input-group-btn">
+                                        {!! Form::submit('Alterar', ['class'=>'btn btn-default']) !!}
+                                      </span>
+                                </div><!-- /input-group -->
+                            {!! Form::close() !!}
                             </td>
 
                             <td class="cart_total">
