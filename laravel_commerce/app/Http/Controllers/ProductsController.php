@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 use CodeCommerce\Http\Requests;
 use CodeCommerce\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
@@ -37,6 +38,11 @@ class ProductsController extends Controller
      */
     public function index()
     {
+        if(!Auth::check()){
+            return "Acesso restrito";
+        }
+
+
         $products = $this->productModel->paginate(10);
         return view('products.index',compact('products'));
     }

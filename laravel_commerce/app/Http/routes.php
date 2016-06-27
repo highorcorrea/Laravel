@@ -17,7 +17,7 @@ Route::pattern('category','[A-Za-z]+');
 Route::pattern('products','[A-Za-z]+');
 
 //Admin
-Route::group(['prefix' => 'admin','where'=> ['id' => '[0-9]+']], function()
+Route::group(['prefix' => 'admin','middleware' => 'auth','where'=> ['id' => '[0-9]+']], function()
 {
     //categories
     Route::group(['prefix' => 'categories'],function()
@@ -60,3 +60,9 @@ Route::get('cart/destroy/{id}', ['as' => 'cart.destroy', 'uses' => 'CartControll
 Route::put('cart/update/{id}', ['as' => 'cart.update', 'uses' => 'CartController@update']);
 
 Route::get('checkout/placeOrder',['as' => 'checkout.place', 'uses' => 'CheckoutController@place']);
+
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+    'test' => 'TestController',
+]);
