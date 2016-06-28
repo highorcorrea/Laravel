@@ -43,6 +43,8 @@ class CheckoutController extends Controller
 
             dd($order);
         }
+
+        return redirect()->route('cart');
     }
 
 }
