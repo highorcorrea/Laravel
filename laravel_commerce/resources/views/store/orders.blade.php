@@ -14,8 +14,8 @@
             <tr>
                 <th>#ID</th>
                 <th>#Itens</th>
-                <th>Valor</th>
-                <th>Status</th>
+                <th>#Valor</th>
+                <th>#Status</th>
             </tr>
 
             @foreach($orders as $order)
