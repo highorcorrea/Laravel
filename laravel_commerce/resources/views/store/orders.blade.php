@@ -13,9 +13,9 @@
             <tbody>
             <tr>
                 <th>#ID</th>
-                <th>#Itens</th>
-                <th>#Valor</th>
-                <th>#Status</th>
+                <th>Itens</th>
+                <th>Valor</th>
+                <th>Status</th>
             </tr>
 
             @foreach($orders as $order)
@@ -29,7 +29,13 @@
                         </ul>
                     </td>
                     <td>R$ {{ number_format($order->total, 2, ',', '.') }}</td>
-                    <td>{{ $order->status }}</td>
+                    <td>
+                        @if ($order->status == 1)
+                            Aprovado
+                        @else
+                            Pendente
+                        @endif
+                    </td>
                 </tr>
             @endforeach
             </tbody>
