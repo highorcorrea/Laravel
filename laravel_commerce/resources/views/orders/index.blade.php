@@ -22,9 +22,13 @@
                             <td>{{ $order->id }}</td>
                             <td>{{ $order->user->name }}</td>
                             <td>
+                                <ul>
                                 @foreach($order->items as $k=>$item)
-                                        {{$item->product->name}} - Qtd: {{$item->qtd}} - R$ {{ number_format($item->price, 2, ',', '.') }}
+                                        <li>
+                                            {{$item->product->name}} - Qtd: {{$item->qtd}} - R$ {{ number_format($item->price, 2, ',', '.') }}
+                                        </li>
                                 @endforeach
+                                </ul>
                             </td>
                             <td>R$ {{ number_format($order->total, 2, ',', '.') }}</td>
 
