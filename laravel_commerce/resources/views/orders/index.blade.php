@@ -22,9 +22,9 @@
                             <td>{{ $order->id }}</td>
                             <td>{{ $order->user->name }}</td>
                             <td>
-                                <ul>
+                                <ul class="list-group">
                                 @foreach($order->items as $k=>$item)
-                                        <li>
+                                        <li class="list-inline">
                                             {{$item->product->name}} - Qtd: {{$item->qtd}} - R$ {{ number_format($item->price, 2, ',', '.') }}
                                         </li>
                                 @endforeach

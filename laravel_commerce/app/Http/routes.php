@@ -76,3 +76,5 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
     'test' => 'TestController',
 ]);
+
+Route::get('test','CheckoutController@test');

@@ -9,7 +9,8 @@
         "laravel/framework": "5.1.*",
         "bestmomo/scafold": "dev-master",
         "illuminate/html": "^5.0",
-        "fzaninotto/faker": "^1.5"
+        "fzaninotto/faker": "^1.5",
+        "wesleywillians/laravel-pagseguro": "dev-master"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
@@ -49,5 +50,6 @@
     },
     "config": {
         "preferred-install": "dist"
-    }
+    },
+    "minimum-stability": "dev"
 }

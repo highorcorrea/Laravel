@@ -149,6 +149,8 @@ return [
 
         Bestmomo\Scafold\ScafoldServiceProvider::class,
 
+        LaravelPagseguro\LaravelPagseguroServiceProvider::Class,
+
     ],
 
     /*
